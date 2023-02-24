@@ -55,10 +55,10 @@ Resources:
               OutputArtifacts: 
                 - Name: AppSourceCode
               Configuration: 
-                Owner: !Ref GitHubOwner
-                Repo: !Ref RepositoryName
-                Branch: !Ref BranchName
-                OAuthToken: '{{resolve:secretsmanager:github-oauth-token:SecretString}}'               
+                Owner: duppa19
+                Repo: cloud-basics4 
+                Branch: main
+                OAuthToken: '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'               
                 PollForSourceChanges: false
               RunOrder: 1      
         - Name: Deploy
@@ -84,7 +84,7 @@ Resources:
     Properties:
       Authentication: GITHUB_HMAC
       AuthenticationConfiguration:
-        SecretToken: '{{resolve:secretsmanager:github-oauth-token:SecretString}}'
+        SecretToken: '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'
       Filters:
         - 
           JsonPath: "$.ref"
